@@ -17,9 +17,16 @@ import { Timestamps } from './timestamps';
 
 interface Meta {
   brand: string;
+  /** Used for credit cards */
   exp_month: string;
+  /** Used for credit cards */
   exp_year: string;
+  /** Used for credit cards */
   last4: string;
+  /** Used for direct debit */
+  bank_account: string;
+  /** Used for direct debit */
+  bank_bic: string;
   type: number;
 }
 

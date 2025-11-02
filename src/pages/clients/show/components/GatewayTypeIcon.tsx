@@ -17,7 +17,7 @@ import paypalLogo from '/gateway-card-images/paypal.png';
 import braintreeLogo from '/gateway-card-images/braintree.svg.png';
 import checkoutcomLogo from '/gateway-card-images/checkout.jpg';
 import goCardlessLogo from '/gateway-card-images/gocardless.png';
-import mollieLogo from '/gateway-card-images/mollie.png';
+import mollieLogo from '/gateway-card-images/mollie.svg';
 import payfastLogo from '/gateway-card-images/payfast.png';
 import paytraceLogo from '/gateway-card-images/paytrace.svg';
 import razorpayLogo from '/gateway-card-images/razorpay.png';

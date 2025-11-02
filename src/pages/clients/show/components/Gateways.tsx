@@ -183,13 +183,21 @@ export function Gateways(props: Props) {
                       className="flex items-center"
                       style={{ color: colors.$17 }}
                     >
-                      <span className="mt-1">****</span>
-                      <span className="ml-1">{token.meta.last4}</span>
+                      {token.meta.bank_account ? (
+                        <span>{token.meta.bank_account}</span>
+                      ) : (
+                        <>
+                          <span className="mt-1">****</span>
+                          <span className="ml-1">{token.meta.last4}</span>
+                        </>
+                      )}
                     </div>
 
-                    <span style={{ color: colors.$17 }}>
-                      {token.meta.exp_month}/{token.meta.exp_year}
-                    </span>
+                    {!token.meta.bank_account && (
+                      <span style={{ color: colors.$17 }}>
+                        {token.meta.exp_month}/{token.meta.exp_year}
+                      </span>
+                    )}
                   </div>
                 </div>
 
