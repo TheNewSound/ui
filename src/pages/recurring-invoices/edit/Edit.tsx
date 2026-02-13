@@ -36,6 +36,7 @@ import { Icon } from '$app/components/icons/Icon';
 import { MdInfo } from 'react-icons/md';
 import { TaxExemptBadge } from '$app/pages/clients/show/components/TaxExemptBadge';
 import { HiddenResourceTaxesAlert } from '$app/components/HiddenResourceTaxesAlert';
+import { ErrorMessage } from '$app/components/ErrorMessage';
 
 export default function Edit() {
   const [t] = useTranslation();
@@ -167,6 +168,7 @@ export default function Edit() {
               ) : (
                 <Spinner />
               )}
+              <ErrorMessage className="mt-2">{errors?.errors.line_items}</ErrorMessage>
             </div>
 
             <div>
