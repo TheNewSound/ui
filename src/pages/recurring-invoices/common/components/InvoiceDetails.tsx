@@ -212,7 +212,8 @@ export function InvoiceDetails(props: Props) {
           />
         )}
 
-        {recurringInvoice && company?.custom_fields?.invoice4 && (
+        {/* custom_value4 field disabled - do not show even if label is set */}
+        {/* {recurringInvoice && company?.custom_fields?.invoice4 && (
           <CustomField
             field="invoice4"
             defaultValue={recurringInvoice?.custom_value4 || ''}
@@ -221,7 +222,7 @@ export function InvoiceDetails(props: Props) {
               handleChange('custom_value4', String(value))
             }
           />
-        )}
+        )} */}
       </Card>
     </>
   );

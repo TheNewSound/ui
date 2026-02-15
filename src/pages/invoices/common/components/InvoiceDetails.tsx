@@ -169,7 +169,8 @@ export function InvoiceDetails(props: Props) {
           />
         )}
 
-        {invoice && company?.custom_fields?.invoice4 && (
+        {/* custom_value4 field disabled - do not show even if label is set */}
+        {/* {invoice && company?.custom_fields?.invoice4 && (
           <CustomField
             field="invoice4"
             defaultValue={invoice?.custom_value4 || ''}
@@ -178,7 +179,7 @@ export function InvoiceDetails(props: Props) {
               handleChange('custom_value4', value.toString())
             }
           />
-        )}
+        )} */}
       </Card>
     </>
   );
