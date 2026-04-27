@@ -39,11 +39,14 @@ import { $refetch } from '$app/common/hooks/useRefetch';
 import { PreviousNextNavigation } from '$app/components/PreviousNextNavigation';
 import { InputLabel } from '$app/components/forms';
 import { Address } from './components/Address';
+import { MijnMotor } from './components/MijnMotor';
 import CardsCustomizationModal, {
   ClientShowCard,
 } from './components/CardsCustomizationModal';
 import { useReactSettings } from '$app/common/hooks/useReactSettings';
 import { useShouldDisplayClientGatewaysAndAutoBill } from './hooks/useShouldDisplayClientGatewaysAndAutoBill';
+import { useEnabled } from '$app/common/guards/guards/enabled';
+import { ModuleBitmask } from '$app/pages/settings/account-management/component';
 
 export default function Client() {
   const { documentTitle, setDocumentTitle } = useTitle('view_client');
@@ -59,6 +62,8 @@ export default function Client() {
   });
 
   const reactSettings = useReactSettings();
+  const isEnabled = useEnabled();
+  const isMijnMotorEnabled = isEnabled(ModuleBitmask.MijnMotor);
 
   const pages: Page[] = [
     { name: t('clients'), href: '/clients' },
@@ -97,6 +102,10 @@ export default function Client() {
       );
     }
 
+    if (card === 'mijnmotor') {
+      return currentCards.includes(card) && isMijnMotorEnabled;
+    }
+
     return currentCards.includes(card);
   };
 
@@ -118,6 +127,8 @@ export default function Client() {
         return <ClientPublicNotes client={client} />;
       case 'private_notes':
         return <ClientPrivateNotes client={client} />;
+      case 'mijnmotor':
+        return <MijnMotor client={client} />;
     }
   };
 

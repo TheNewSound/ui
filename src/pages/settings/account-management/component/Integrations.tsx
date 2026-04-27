@@ -25,6 +25,8 @@ import { ConnectedDots } from '$app/components/icons/ConnectedDots';
 import { ChartLine } from '$app/components/icons/ChartLine';
 import { QuickBooks } from './QuickBooks';
 import { usePaidOrSelfHost } from '$app/common/hooks/usePaidOrSelfhost';
+import { useEnabled } from '$app/common/guards/guards/enabled';
+import { ModuleBitmask } from './';
 
 interface BoxTheme {
   backgroundColor: string;
@@ -47,6 +49,8 @@ export function Integrations() {
   const colors = useColorScheme();
 
   const isPaidOrSelfHost = usePaidOrSelfHost();
+  const isEnabled = useEnabled();
+  const isMijnMotorEnabled = isEnabled(ModuleBitmask.MijnMotor);
 
   return (
     <div className="flex flex-col space-y-4 px-4 sm:px-6 pt-2 pb-4">
@@ -195,6 +199,40 @@ export function Integrations() {
             <QuickBooks />
           </>
         )}
+
+      {isMijnMotorEnabled && (
+        <>
+          <div className="py-4">
+            <Divider
+              className="border-dashed"
+              withoutPadding
+              style={{ borderColor: colors.$20 }}
+            />
+          </div>
+
+          <Box
+            className="flex justify-between items-center p-4 border shadow-sm w-full rounded-md cursor-pointer"
+            theme={{
+              backgroundColor: colors.$1,
+              hoverBackgroundColor: colors.$4,
+            }}
+            onClick={() => navigate('/settings/account_management/mijnmotor')}
+            style={{ borderColor: colors.$24 }}
+          >
+            <div className="flex items-center space-x-2">
+              <ConnectedDots color={colors.$3} size="1.4rem" />
+
+              <span className="text-sm" style={{ color: colors.$3 }}>
+                MijnMotor
+              </span>
+            </div>
+
+            <div>
+              <ArrowRight color={colors.$3} size="1.4rem" strokeWidth="1.5" />
+            </div>
+          </Box>
+        </>
+      )}
     </div>
   );
 }

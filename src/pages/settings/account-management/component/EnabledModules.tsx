@@ -32,6 +32,7 @@ export enum ModuleBitmask {
   RecurringExpenses = 512,
   PurchaseOrders = 16384,
   Transactions = 256, // old: 32768
+  MijnMotor = 131072,
 }
 
 export const modules: Module[] = [
@@ -52,6 +53,7 @@ export const modules: Module[] = [
     bitmask: ModuleBitmask.RecurringExpenses,
   },
   { label: 'transactions', bitmask: ModuleBitmask.Transactions },
+  { label: 'mijnmotor', bitmask: ModuleBitmask.MijnMotor },
 
   // { label: t('tickets'), bitmask: 128 },
   // { label: t('proposals'), bitmask: 256 },

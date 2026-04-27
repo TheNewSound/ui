@@ -348,6 +348,9 @@ export interface Settings {
   ses_region: string;
   ses_topic_arn: string;
   ses_from_address: string;
+  mijnmotor_oauth_domain: string;
+  mijnmotor_oauth_client_identifier: string;
+  mijnmotor_oauth_client_secret: string;
 }
 
 export interface TaxData {

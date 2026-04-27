@@ -54,7 +54,8 @@ export type ClientShowCard =
   | 'email_history'
   | 'gateways'
   | 'public_notes'
-  | 'private_notes';
+  | 'private_notes'
+  | 'mijnmotor';
 
 const ALL_CARDS: ClientShowCard[] = [
   'details',
@@ -64,6 +65,7 @@ const ALL_CARDS: ClientShowCard[] = [
   'gateways',
   'public_notes',
   'private_notes',
+  'mijnmotor',
 ];
 
 export function CardsCustomizationModal() {

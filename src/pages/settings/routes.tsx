@@ -82,6 +82,7 @@ export const settingsRoutes = (
         />
         <Route path="enabled_modules" element={<Settings.EnabledModules />} />
         <Route path="integrations" element={<Settings.Integrations />} />
+        <Route path="mijnmotor" element={<Settings.MijnMotor />} />
         <Route
           path="security_settings"
           element={<Settings.SecuritySettings />}
