@@ -59,14 +59,6 @@ function SubscriptionPeriods({ periods, expanded }: { periods: Period[]; expande
           )}
         </div>
       ))}
-      {periods.length > 2 && (
-        <button
-          className="text-xs hover:underline"
-          style={{ color: colors.$17 }}
-        >
-          {expanded ? '...' : '...'}
-        </button>
-      )}
     </div>
   );
 }
@@ -149,7 +141,11 @@ export function MijnMotor(props: Props) {
                       className="text-xs hover:underline"
                       style={{ color: colors.$17 }}
                     >
-                      {isExpanded ? 'Toon minder' : 'Toon meer'}
+                      {isExpanded ? 'Toon minder' : (
+                        <>
+                          ...<br />Toon meer
+                        </>
+                      )}
                     </button>
                   )}
                 </div>
